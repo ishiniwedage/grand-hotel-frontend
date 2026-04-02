@@ -147,8 +147,8 @@ function StaffAccessPage() {
                         </div>
                     )}
 
-                    <button style={styles.backButton} onClick={() => navigate('/')}>
-                        ← Back to Login
+                    <button style={styles.backButton} onClick={() => navigate('/dashboard')}>
+                        ← Back
                     </button>
                 </div>
             </div>

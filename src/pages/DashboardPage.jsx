@@ -22,6 +22,16 @@ function DashboardPage() {
         getAllRooms().then(res => setAllRooms(res.data));
     }, []);
 
+    const handleClear = () => {
+        setSearched(false);
+        setRoom(null);
+        setBooking(null);
+        setGuest(null);
+        setAccessLog([]);
+        setSearchValue('');
+        setError('');
+    };
+
     const handleSearch = async () => {
         setError('');
         setRoom(null);
@@ -126,6 +136,11 @@ function DashboardPage() {
                         <button style={styles.searchButton} onClick={handleSearch}>
                             Search
                         </button>
+                        {searched && (
+                            <button style={styles.clearButton} onClick={handleClear}>
+                                ✖ Clear
+                            </button>
+                        )}
                     </div>
                     {error && <p style={styles.error}>⚠️ {error}</p>}
                 </div>
@@ -254,6 +269,7 @@ const styles = {
     searchRow: { display: 'flex', gap: '10px' },
     input: { flex: 1, padding: '10px 12px', borderRadius: '8px', border: '1px solid #ddd', fontSize: '1rem' },
     searchButton: { padding: '10px 24px', backgroundColor: '#3498db', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontSize: '1rem' },
+    clearButton: { padding: '10px 20px', backgroundColor: '#e74c3c', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontSize: '1rem' },
     error: { color: '#e74c3c', margin: '10px 0 0 0', fontSize: '0.9rem' },
     resultsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', marginBottom: '24px' },
     resultCard: { backgroundColor: 'white', borderRadius: '12px', padding: '20px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' },

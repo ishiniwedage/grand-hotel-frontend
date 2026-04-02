@@ -56,7 +56,7 @@ function LoginPage() {
                         Login
                     </button>
 
-                    <p style={styles.hint}>Use: admin / admin123</p>
+                    
                 </div>
             </div>
         </div>
